@@ -383,7 +383,7 @@ thread_set_priority (int new_priority)
     {
       // If the current thread's priority was upgraded, 
       //  priority inversion could happen on any threads blocked by a lock held by the current_thread.
-      //  Thus, propagate the priority down the current thread's donor_list (if it isn't empty).
+      //  Thus, propagate the priority down the blocked threads (inc. threads blocked by lock chaining).
       thread_donate_priority();
     }
     else
