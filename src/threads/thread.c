@@ -405,7 +405,7 @@ thread_get_priority (void)
   return thread_current ()->effective_priority;
 }
 
-/* Propagate down the current thread's donor list to donate the priority. */
+/* Propagate down the threads who are blocked on a chain of locks. */
 void
 thread_donate_priority (void)
 {
