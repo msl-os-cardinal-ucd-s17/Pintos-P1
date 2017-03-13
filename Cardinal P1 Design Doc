@@ -343,9 +343,18 @@ ticks   A   B   C   A   B   C   to run
 >> time to work on this part of the project, how might you choose to
 >> refine or improve your design?
 
-    Although the design is functional, given more time we would attempt to 
+    Our design for this multilevel feedback scheduler was thorough and cautious. 
+  We avoided unecessary overhead by utilizing the ready list, sorted by threads'
+  MLFQS-specific priorities, as opposed to literally implemented 64 queues for
+  all possible priorities. We also chose to implement all the MLFQS calculations
+  in the timer_interrupt [in devices/timer.c], so that calculations could have a 
+  central place to check timer_ticks, avoiding overlap or repetition of 
+  calculations. 
+  
+  Although the design is fully functional, given more time we would attempt to 
   streamline the amount of code that was forced to run in the context of the
-  interrupt handler.    
+  interrupt handler. We also see potential to refine our design by streamlining
+  subprocess calculations to eliminate redundant code.
 
 
 
