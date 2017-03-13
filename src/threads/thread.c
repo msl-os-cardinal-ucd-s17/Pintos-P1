@@ -390,8 +390,6 @@ thread_set_priority (int new_priority)
     {
       // Else, if the current thread's priority was potentially downgraded, 
       //   yield to ensure the highest priority thread is executing.
-      // TODO: could current_thread ever potentially be different? 
-      //    (i.e. should we expect the current thread to change following the previous control flow)? 
        verify_current_thread_highest();
     }
   }
